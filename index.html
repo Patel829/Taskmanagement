@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskMaster - All-in-One Task Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f7f6;
+        }
+        .main-content {
+            padding-top: 64px; /* Height of the navbar */
+        }
+        section {
+            min-height: 100vh;
+            padding: 2rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .task-card {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .task-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-white/80 backdrop-blur-md shadow-md fixed top-0 left-0 right-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <a href="#home" class="flex items-center space-x-2">
+                    <i class="fas fa-check-double text-2xl text-indigo-600"></i>
+                    <span class="text-xl font-bold text-gray-900">TaskMaster</span>
+                </a>
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="#home" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
+                    <a href="#tasks" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">My Tasks</a>
+                    <a href="#projects" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+                    <a href="#calendar" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">Calendar</a>
+                    <a href="#team" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">Team</a>
+                    <a href="#reports" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">Reports</a>
+                    <a href="#profile" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">Profile</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-4">
+                     <a href="#notifications" class="text-gray-500 hover:text-indigo-600"><i class="fas fa-bell"></i></a>
+                     <a href="#settings" class="text-gray-500 hover:text-indigo-600"><i class="fas fa-cog"></i></a>
+                     <a href="#help" class="text-gray-500 hover:text-indigo-600"><i class="fas fa-question-circle"></i></a>
+                </div>
+                 <!-- Mobile Menu Button (optional, for show) -->
+                <div class="md:hidden">
+                    <button class="text-gray-600 hover:text-indigo-600">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+
+        <!-- Page 1: Home/Dashboard -->
+        <section id="home" class="bg-white">
+            <div class="max-w-7xl mx-auto">
+                <h1 class="text-4xl font-bold mb-2">Welcome Back, Alex!</h1>
+                <p class="text-gray-500 mb-8">Here's your productivity snapshot for today, July 21, 2025.</p>
+                
+                <!-- Stats Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-blue-100 p-6 rounded-lg">
+                        <h3 class="text-3xl font-bold text-blue-800">12</h3>
+                        <p class="text-blue-700">Tasks Pending</p>
+                    </div>
+                    <div class="bg-green-100 p-6 rounded-lg">
+                        <h3 class="text-3xl font-bold text-green-800">5</h3>
+                        <p class="text-green-700">Tasks Completed Today</p>
+                    </div>
+                    <div class="bg-yellow-100 p-6 rounded-lg">
+                        <h3 class="text-3xl font-bold text-yellow-800">3</h3>
+                        <p class="text-yellow-700">Upcoming Deadlines</p>
+                    </div>
+                    <div class="bg-indigo-100 p-6 rounded-lg">
+                        <h3 class="text-3xl font-bold text-indigo-800">8</h3>
+                        <p class="text-indigo-700">Active Projects</p>
+                    </div>
+                </div>
+
+                <h2 class="text-2xl font-bold mb-4">Recent Activity</h2>
+                <ul>
+                    <li class="bg-gray-50 p-3 rounded-md mb-2">You completed "Design new logo".</li>
+                    <li class="bg-gray-50 p-3 rounded-md mb-2">Sarah commented on "Develop landing page".</li>
+                    <li class="bg-gray-50 p-3 rounded-md mb-2">A new task "User testing session" was added to Project Alpha.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Page 2: My Tasks -->
+        <section id="tasks">
+            <div class="max-w-7xl mx-auto">
+                <h1 class="text-4xl font-bold mb-8">My Tasks</h1>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- To Do Column -->
+                    <div>
+                        <h2 class="text-xl font-bold mb-4 text-red-600">To Do (5)</h2>
+                        <div class="space-y-4">
+                            <div class="task-card bg-white p-4 rounded-lg shadow">
+                                <h3 class="font-bold">Develop landing page</h3>
+                                <p class="text-sm text-gray-500">Project Alpha</p>
+                                <div class="text-xs text-red-500 mt-2">Due: Jul 23, 2025</div>
+                            </div>
+                            <div class="task-card bg-white p-4 rounded-lg shadow">
+                                <h3 class="font-bold">Write blog post</h3>
+                                <p class="text-sm text-gray-500">Marketing</p>
+                                <div class="text-xs text-red-500 mt-2">Due: Jul 24, 2025</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- In Progress Column -->
+                    <div>
+                        <h2 class="text-xl font-bold mb-4 text-yellow-600">In Progress (3)</h2>
+                        <div class="space-y-4">
+                            <div class="task-card bg-white p-4 rounded-lg shadow">
+                                <h3 class="font-bold">Create social media graphics</h3>
+                                <p class="text-sm text-gray-500">Marketing</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Done Column -->
+                    <div>
+                        <h2 class="text-xl font-bold mb-4 text-green-600">Done (4)</h2>
+                         <div class="space-y-4">
+                            <div class="task-card bg-white p-4 rounded-lg shadow opacity-60">
+                                <h3 class="font-bold line-through">Design new logo</h3>
+                                <p class="text-sm text-gray-500">Project Alpha</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 3: Projects -->
+        <section id="projects" class="bg-white">
+            <div class="max-w-7xl mx-auto">
+                <h1 class="text-4xl font-bold mb-8">Projects</h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Project Card -->
+                    <div class="task-card bg-gray-50 border border-gray-200 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-2">Project Alpha</h3>
+                        <p class="text-sm text-gray-600 mb-4">Website redesign and launch.</p>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="bg-green-600 h-2.5 rounded-full" style="width: 75%"></div>
+                        </div>
+                        <p class="text-xs text-right mt-1">75% Complete</p>
+                    </div>
+                    <!-- Project Card -->
+                    <div class="task-card bg-gray-50 border border-gray-200 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-2">Marketing Campaign Q3</h3>
+                        <p class="text-sm text-gray-600 mb-4">Launch new marketing initiative.</p>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="bg-blue-600 h-2.5 rounded-full" style="width: 40%"></div>
+                        </div>
+                        <p class="text-xs text-right mt-1">40% Complete</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 4: Calendar -->
+        <section id="calendar">
+            <div class="max-w-7xl mx-auto">
+                <h1 class="text-4xl font-bold mb-8">Calendar</h1>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-2xl font-bold">July 2025</h2>
+                    </div>
+                    <div class="grid grid-cols-7 gap-2 text-center font-bold text-gray-600">
+                        <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+                    </div>
+                    <div class="grid grid-cols-7 gap-2 mt-2 text-center">
+                        <!-- Static Calendar Example -->
+                        <div class="text-gray-400">30</div>
+                        <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div>
+                        <div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div>
+                        <div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div>
+                        <div class="bg-indigo-600 text-white rounded-full h-8 w-8 leading-8 mx-auto">21</div>
+                        <div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div>
+                        <div>28</div><div>29</div><div>30</div><div>31</div><div class="text-gray-400">1</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 5: Team -->
+        <section id="team" class="bg-white">
+            <div class="max-w-7xl mx-auto">
+                <h1 class="text-4xl font-bold mb-8">Team Members</h1>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                    <!-- Team Member Card -->
+                    <div class="text-center">
+                        <img src="https://placehold.co/128x128/E0E7FF/4F46E5?text=AV" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-lg">
+                        <h3 class="text-xl font-bold">Alex Vance</h3>
+                        <p class="text-gray-500">Project Manager</p>
+                    </div>
+                    <div class="text-center">
+                        <img src="https://placehold.co/128x128/D1FAE5/065F46?text=SC" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-lg">
+                        <h3 class="text-xl font-bold">Sarah Chen</h3>
+                        <p class="text-gray-500">Lead Developer</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 6: Reports -->
+        <section id="reports">
+            <div class="max-w-7xl mx-auto">
+                <h1 class="text-4xl font-bold mb-8">Analytics & Reports</h1>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h2 class="text-2xl font-bold mb-4">Task Completion Rate</h2>
+                    <div class="h-64 bg-gray-100 rounded-md flex items-center justify-center">
+                        <p class="text-gray-500">[Chart Placeholder]</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 7: Profile -->
+        <section id="profile" class="bg-white">
+            <div class="max-w-xl mx-auto">
+                <h1 class="text-4xl font-bold mb-8">My Profile</h1>
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <div class="flex items-center space-x-6 mb-6">
+                        <img src="https://placehold.co/128x128/E0E7FF/4F46E5?text=AV" class="w-32 h-32 rounded-full shadow-lg">
+                        <div>
+                            <h2 class="text-3xl font-bold">Alex Vance</h2>
+                            <p class="text-gray-500">alex.vance@example.com</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">Role:</h3>
+                        <p class="mb-4">Project Manager</p>
+                        <h3 class="font-bold text-lg mb-2">Bio:</h3>
+                        <p>Dedicated PM with 5+ years of experience in agile development.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 8: Notifications -->
+        <section id="notifications">
+            <div class="max-w-xl mx-auto">
+                <h1 class="text-4xl font-bold mb-8">Notifications</h1>
+                <div class="bg-white p-6 rounded-lg shadow-lg space-y-4">
+                    <div class="flex items-start space-x-4 p-4 rounded-md bg-blue-50">
+                        <i class="fas fa-comment text-blue-500 mt-1"></i>
+                        <div>
+                            <p><strong>Sarah Chen</strong> commented on your task "Develop landing page".</p>
+                            <p class="text-sm text-gray-500">2 hours ago</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4 p-4 rounded-md bg-green-50">
+                        <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                        <div>
+                            <p>You completed the task "Design new logo".</p>
+                            <p class="text-sm text-gray-500">5 hours ago</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 9: Settings -->
+        <section id="settings" class="bg-white">
+            <div class="max-w-xl mx-auto">
+                <h1 class="text-4xl font-bold mb-8">Settings</h1>
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <h2 class="text-2xl font-bold mb-6">Preferences</h2>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <label for="email-notif">Email Notifications</label>
+                            <div class="w-12 h-6 flex items-center bg-gray-300 rounded-full p-1 duration-300 ease-in-out cursor-pointer">
+                                <div class="bg-white w-4 h-4 rounded-full shadow-md transform duration-300 ease-in-out"></div>
+                            </div>
+                        </div>
+                         <div class="flex justify-between items-center">
+                            <label for="dark-mode">Dark Mode</label>
+                            <div class="w-12 h-6 flex items-center bg-gray-300 rounded-full p-1 duration-300 ease-in-out cursor-pointer">
+                                <div class="bg-white w-4 h-4 rounded-full shadow-md transform duration-300 ease-in-out"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 10: Help/Support -->
+        <section id="help">
+            <div class="max-w-xl mx-auto">
+                <h1 class="text-4xl font-bold mb-8">Help & Support</h1>
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                     <h2 class="text-2xl font-bold mb-4">Frequently Asked Questions</h2>
+                     <div class="space-y-2">
+                        <p><strong>Q: How do I create a new task?</strong><br>A: Navigate to the "My Tasks" page and use the "Add Task" button (feature not implemented in this static demo).</p>
+                        <p><strong>Q: Can I invite team members?</strong><br>A: Yes, from the "Team" page (feature not implemented in this static demo).</p>
+                     </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-800 text-white text-center p-4">
+        <p>&copy; 2025 TaskMaster. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
